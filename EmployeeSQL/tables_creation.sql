@@ -27,26 +27,35 @@ CREATE TABLE "departments" (
 
 CREATE TABLE "dept_manager" (
     "dept_no" VARCHAR(10)   NOT NULL,
-    "emp_no" INTEGER   NOT NULL
+    "emp_no" INTEGER   NOT NULL,
+    CONSTRAINT "pk_dept_manager" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
 CREATE TABLE "dept_emp" (
     "emp_no" INTEGER   NOT NULL,
-    "dept_no" VARCHAR(10)   NOT NULL
+    "dept_no" VARCHAR(10)   NOT NULL,
+    CONSTRAINT "pk_dept_emp" PRIMARY KEY (
+        "emp_no","dept_no"
+     )
 );
 
 CREATE TABLE "salaries" (
     "emp_no" INTEGER   NOT NULL,
-    "salary" INTEGER   NOT NULL
+    "salary" INTEGER   NOT NULL,
+    CONSTRAINT "pk_salaries" PRIMARY KEY (
+        "emp_no"
+     )
 );
 
 CREATE TABLE "employees" (
     "emp_no" INTEGER   NOT NULL,
-    "emp_title_id" VARCHAR   NOT NULL,
-    "birth_date" VARCHAR   NOT NULL,
-    "first_name" VARCHAR   NOT NULL,
-    "last_name" VARCHAR   NOT NULL,
-    "sex" VARCHAR  NOT NULL,
+    "emp_title_id" VARCHAR(30)   NOT NULL,
+    "birth_date" VARCHAR(30)   NOT NULL,
+    "first_name" VARCHAR(30)   NOT NULL,
+    "last_name" VARCHAR(30)  NOT NULL,
+    "sex" VARCHAR(1)  NOT NULL,
     "hire_date" DATE  NOT NULL,
     CONSTRAINT "pk_employees" PRIMARY KEY (
         "emp_no"
